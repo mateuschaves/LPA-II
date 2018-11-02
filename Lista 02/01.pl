@@ -30,10 +30,11 @@ irmã(X, Y):- mulher(X), progenitor(Z, Y), progenitor(Z, X).
 avô(X, Y):- homem(X), ( filho(Z, X); filha(Z, X) ), progenitor(Z, Y).
 avó(X, Y):- mulher(X), (  filho(Z, X); filha(Z, X) ), progenitor(Z, Y).
 
-tio(X, Y):- homem(X), imão(Z, X), progenitor(Z, Y).
+tio(X, Y):- homem(X), irmão(Z, X), progenitor(Z, Y).
 tia(X, Y):- mulher(X), irmã(Z, X), progenitor(Z, Y).
 
-primo(X, Y):- homem(X), tio(Z, X), progenitor(Z, Y).
+primo(X, Y) :- progenitor(Z, X), (tio(Z, Y); tia(Z, Y)), homem(X).
+prima(X, Y) :- progenitor(Z, X), (tio(Z, Y); tia(Z, Y)), mulher(X).
 
 
 
