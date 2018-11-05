@@ -32,3 +32,10 @@ paises_continente(Lista, Cont):- findall(A, (pais(A, B, _), B == Cont ), Lista).
 /*C - Escreva o predicado paises_grandes(Lista, Cont) que calcula a Lista de países com mais de 100
 milhões de habitantes de um dado continente. */
 paises_grandes(Lista, Cont):- findall(A, (pais(A, Cont, B), B > 100), Lista).
+
+/*D - Escreva o predicado dois_mais_pop(P1, P2), que calcula quais os dois países com mais habitantes. */
+
+% Seleciona os dois primeiros elementos de uma lista.
+two([J, K | _], A, B):- A is J, B is K.
+
+dois_mais_pop(X, Y):- findall(B, (pais(A, _, B)), L), sort(L, M), reverse(M, J), two(J, Primeiro, Segundo), findall(A, (pais(A, _, B), B =:= Primeiro ), X), findall(A, (pais(A, _, B), B =:= Segundo ), Y).
