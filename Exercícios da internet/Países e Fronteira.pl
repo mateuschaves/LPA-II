@@ -25,7 +25,10 @@ fronteira(china, mongolia).
 /* A - Escreva o predicado junto(P1,P2) que sucede se o pais P1 faz fronteira com P2. */
 junto(X, Y):- fronteira(X, Y); fronteira(Y, X).
 
-/* B - Escreva o predicado paises_continente(Lista, Cont) que calcula a Lista de pa�ses existentes num dado
+/* B - Escreva o predicado paises_continente(Lista, Cont) que calcula a Lista de países existentes num dado
 continente. */
 paises_continente(Lista, Cont):- findall(A, (pais(A, B, _), B == Cont ), Lista).
 
+/*C - Escreva o predicado paises_grandes(Lista, Cont) que calcula a Lista de países com mais de 100
+milhões de habitantes de um dado continente. */
+paises_grandes(Lista, Cont):- findall(A, (pais(A, Cont, B), B > 100), Lista).
