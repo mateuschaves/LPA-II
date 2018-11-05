@@ -46,4 +46,4 @@ descricao(X):- findall(A * B * C, (pais(A, B, C)), X).
 
 /*F - Escreva o predicado nao_sou_o_maior_do_continente(P1) que sucede se P1 não é o maior país do seu
 continente.*/
-nao_sou_o_maior_do_continente(X):- pais(X, C, P), findall(K, (pais(J, C, K)), T), sort(T, O), reverse(O, M), two(M, V, B), not(V =:= P).
+nao_sou_o_maior_do_continente(X):- pais(X, C, P), findall(K, (pais(_, C, K)), T), sort(T, O), reverse(O, M), two(M, V, _), not(V =:= P).
