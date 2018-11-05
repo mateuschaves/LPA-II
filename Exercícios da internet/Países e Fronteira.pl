@@ -47,3 +47,7 @@ descricao(X):- findall(A * B * C, (pais(A, B, C)), X).
 /*F - Escreva o predicado nao_sou_o_maior_do_continente(P1) que sucede se P1 não é o maior país do seu
 continente.*/
 nao_sou_o_maior_do_continente(X):- pais(X, C, P), findall(K, (pais(_, C, K)), T), sort(T, O), reverse(O, M), two(M, V, _), not(V =:= P).
+
+/*G - Escreve o predicado chego_la_facil(P1, P2) que sucede se é possível chegar de P1 a P2, directamente
+ou atravessando unicamente um outro país. */
+chego_la_facil(X, Y):- fronteira(X, Y); fronteira(Z, X), fronteira(Z, Y); fronteira(X, Z), fronteira(Y, Z).
