@@ -39,3 +39,7 @@ paises_grandes(Lista, Cont):- findall(A, (pais(A, Cont, B), B > 100), Lista).
 two([J, K | _], A, B):- A is J, B is K.
 
 dois_mais_pop(X, Y):- findall(B, (pais(A, _, B)), L), sort(L, M), reverse(M, J), two(J, Primeiro, Segundo), findall(A, (pais(A, _, B), B =:= Primeiro ), X), findall(A, (pais(A, _, B), B =:= Segundo ), Y).
+
+/*E - Escreva o predicado descricao(Lista), que retorne uma lista com a descrição de todos os países,
+incluindo o seu nome, continente e população ( [portugal*europa*10, …,china*asia*1000] ). */
+descricao(X):- findall(A * B * C, (pais(A, B, C)), X).
