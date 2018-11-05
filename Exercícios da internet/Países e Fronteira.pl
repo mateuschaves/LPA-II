@@ -40,10 +40,10 @@ two([J, K | _], A, B):- A is J, B is K.
 
 dois_mais_pop(X, Y):- findall(B, (pais(A, _, B)), L), sort(L, M), reverse(M, J), two(J, Primeiro, Segundo), findall(A, (pais(A, _, B), B =:= Primeiro ), X), findall(A, (pais(A, _, B), B =:= Segundo ), Y).
 
-/*Escreva o predicado descricao(Lista), que retorne uma lista com a descrição de todos os países,
+/*E - Escreva o predicado descricao(Lista), que retorne uma lista com a descrição de todos os países,
 incluindo o seu nome, continente e população ( [portugal*europa*10, …,china*asia*1000] ). */
 descricao(X):- findall(A * B * C, (pais(A, B, C)), X).
 
 /*F - Escreva o predicado nao_sou_o_maior_do_continente(P1) que sucede se P1 não é o maior país do seu
 continente.*/
-nao_sou_o_maior_do_continente(X):- pais(X, C, P), findall(K, (pais(J, C, K)), T), sort(T, O), reverse(O, M), two(M, V, B), V =:= P.
+nao_sou_o_maior_do_continente(X):- pais(X, C, P), findall(K, (pais(J, C, K)), T), sort(T, O), reverse(O, M), two(M, V, B), not(V =:= P).
