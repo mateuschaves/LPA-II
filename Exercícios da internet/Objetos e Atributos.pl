@@ -34,3 +34,8 @@ debaixo(X, Y):- sobre(Y, X).
 
 % B -Escreva o predica objectos(Lista) que calcula a Lista de objectos existentes no mundo (Lista=[obj1,obj2,obj3,obj4,obj5]).
 objetos(X):- findall(A, objecto(A), X).
+
+/*C - Escreva o predicado objectos_descricao(Lista), que retorne uma lista com a descrição de todos os
+objectos, incluindo o seu nome, material, tipo e peso ( [obj1-madeira-mesa-10.5, obj2-madeiracadeira-1.5,
+…, obj5-ferro-matraca-1.8] )*/
+objetos_descricao(X):- findall(A-B-C-D, (objecto(A), material(A, B), tipo(A, C), peso(A, D)) , X).
