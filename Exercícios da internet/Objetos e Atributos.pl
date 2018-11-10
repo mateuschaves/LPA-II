@@ -31,3 +31,6 @@ sobre(obj5, obj3).
 
 % A - Escreva o predicado debaixo(O1,O2) que sucede se o objecto O1 está debaixo (directamente) do objecto O2. 
 debaixo(X, Y):- sobre(Y, X).
+
+% B -Escreva o predica objectos(Lista) que calcula a Lista de objectos existentes no mundo (Lista=[obj1,obj2,obj3,obj4,obj5]).
+objetos(X):- findall(A, objecto(A), X).
