@@ -29,6 +29,19 @@ irmaos(americo, paulo).
 irmaos(carlos, sonia).
 
 pai(carlos, teresa).
+pai(daniel, americo).
+pai(daniel, paulo).
+pai(joaquim, daniel).
+
+mae(maria, daniel).
+mae(barbara, joana).
+
+casados(filipe, carla).
+casados(americo,teresa).
+casados(joaquim, maria).
 
 /*A - Escreva o predicado pessoas(Lista) que calcula a Lista de todas as pessoas existentes na base de factos. */
 pessoas(X):- findall(A, homem(A), H), findall(B, mulher(B), M), append(H, M, X).
+
+/*B - Escreva o predicado avof(Mul, Pess) em que Mul seja avó de Pess. */
+avof(X, Y):- mae(X, Z), (pai(Z, Y); mae(Z, Y)), mulher(X).
