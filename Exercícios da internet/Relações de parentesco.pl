@@ -11,6 +11,7 @@ mulher(ana).
 mulher(carla).
 mulher(barbara).
 mulher(maria).
+mulher(eu).
 
 idade(americo, 18).
 idade(paulo, 25).
@@ -35,6 +36,7 @@ pai(joaquim, daniel).
 
 mae(maria, daniel).
 mae(barbara, joana).
+mae(eu, joaquim).
 
 casados(filipe, carla).
 casados(americo,teresa).
@@ -48,3 +50,6 @@ avof(X, Y):- mae(X, Z), (pai(Z, Y); mae(Z, Y)), mulher(X).
 
 /*C - Escreva o predicado avom(Hom, Pess) em que Hom seja avô de Pess. */
 avom(X, Y):- pai(X, Z), (pai(Z, Y); mae(Z, Y)), homem(X).
+
+/*D - Escreva o predicado bisavom(Hom, Pess) que suceda se Hom for bisavô de Pess.*/
+bisavom(X, Y):- mae(X, Z),(avof(Z, Y); avom(Z, Y)), mulher(X).
