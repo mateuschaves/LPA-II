@@ -58,3 +58,8 @@ bisavom(X, Y):- mae(X, Z),(avof(Z, Y); avom(Z, Y)), mulher(X).
 /*E - Escreva os predicados tio(Hom, Pess) e tia(Hom, Pess) que sucedem se Hom (Mul) for tio/tia de Pess. */
 tio(X, Y):- irmaos(X, Z),(pai(Z, Y); mae(Z, Y)), homem(X).
 tia(X, Y):- irmaos(X, Z),(pai(Z, Y); mae(Z, Y)), mulher(X).
+
+/*F - Escreva os predicados neto(Hom, Pess) e neta(Hom, Pess) que sucedem se Hom (Mul) for neto/neta de
+Pess. */
+neto(X, Y):- avof(Y, X); avom(Y, X), homem(X).
+neta(X, Y):- avof(Y, X); avom(Y, X), mulher(X).
