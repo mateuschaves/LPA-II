@@ -28,6 +28,7 @@ idade(maria, 79).
 
 irmaos(americo, paulo).
 irmaos(carlos, sonia).
+irmaos(carlos, maria).
 
 pai(carlos, teresa).
 pai(daniel, americo).
@@ -53,3 +54,7 @@ avom(X, Y):- pai(X, Z), (pai(Z, Y); mae(Z, Y)), homem(X).
 
 /*D - Escreva o predicado bisavom(Hom, Pess) que suceda se Hom for bisavô de Pess.*/
 bisavom(X, Y):- mae(X, Z),(avof(Z, Y); avom(Z, Y)), mulher(X).
+
+/*E - Escreva os predicados tio(Hom, Pess) e tia(Hom, Pess) que sucedem se Hom (Mul) for tio/tia de Pess. */
+tio(X, Y):- irmaos(X, Z),(pai(Z, Y); mae(Z, Y)), homem(X).
+tia(X, Y):- irmaos(X, Z),(pai(Z, Y); mae(Z, Y)), mulher(X).
