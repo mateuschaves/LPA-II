@@ -45,3 +45,6 @@ pessoas(X):- findall(A, homem(A), H), findall(B, mulher(B), M), append(H, M, X).
 
 /*B - Escreva o predicado avof(Mul, Pess) em que Mul seja avó de Pess. */
 avof(X, Y):- mae(X, Z), (pai(Z, Y); mae(Z, Y)), mulher(X).
+
+/*C - Escreva o predicado avom(Hom, Pess) em que Hom seja avô de Pess. */
+avom(X, Y):- pai(X, Z), (pai(Z, Y); mae(Z, Y)), homem(X).
