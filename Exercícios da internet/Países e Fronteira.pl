@@ -52,15 +52,21 @@ nao_sou_o_maior_do_continente(X):- pais(X, C, P), findall(K, (pais(_, C, K)), T)
 ou atravessando unicamente um outro país. */
 chego_la_facil(X, Y):- fronteira(X, Y); fronteira(Z, X), fronteira(Z, Y); fronteira(X, Z), fronteira(Y, Z).
 
+/*I - Escreva o predicado conta_paises(Num) que calcula quantos países diferentes existem na base de
+dados.  */
+
+% Soma todos os elementos de uma lista.
+sum([], 0).
+sum([A | B], S):- sum(B, SN), S is SN + A.
+
+conta_paises(X):- findall(1, pais(_, _, _), L), sum(L, X).
+
 /*M - Escreva o predicado soma_populacao_vizinhos(P1, Soma) que calcula a soma da população dos
 vizinhos de P1. */
 
 % Verifica se X é vizinho de Y.
 vizinho(X, Y):- fronteira(X, Y); fronteira(Y, X).
 
-% Soma todos os elementos de uma lista.
-sum([], 0).
-sum([A | B], S):- sum(B, SN), S is SN + A.
+
 
 soma_populacao_vizinhos(X, Y):- findall(C, (pais(A, _, C), vizinho(A, X)), P), sum(P, Y).
-
