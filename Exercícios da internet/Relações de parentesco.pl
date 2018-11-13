@@ -77,6 +77,11 @@ sum([A | B], S):- sum(B, Sn), S is Sn + A.
 
 numero_irmaos(X, N):- findall(1 , ( (irmaos(Y, X), irmaos(X, Y)); ( irmaos(Z, X), irmaos(Z, Y) ); (irmaos(X, Z), irmaos(Y, Z)) ), L), sum(L, S), S == N.
 
+/*N - Escreva o predicado lista_dos_mais_velhos_que_eu(Pess, Lista) que retorne uma lista com todas as pessoas
+mais velhas que Pess. */
+lista_dos_mais_velhos_que_eu(X, Y):- idade(X, K), findall(A, ( idade(A, B), B > K ), Y).
+
+
 
 
 
