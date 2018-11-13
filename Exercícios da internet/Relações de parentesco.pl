@@ -67,7 +67,8 @@ neta(X, Y):- avof(Y, X); avom(Y, X), mulher(X).
 /*I - Escreva o predicado maior_de_idade(Pess) que sucede se Pess for maior de idade. */ 
 maior_de_idade(X):- idade(X, I), I > 18.
 
-
+/*J - Escreva o predicado mais_velho(Pess) que retorna a pessoa mais velha que consta na base de factos. */
+mais_velho(X):- findall(B, idade(A, B) , L), max_list(L, H), idade(X, H).
 
 
 
