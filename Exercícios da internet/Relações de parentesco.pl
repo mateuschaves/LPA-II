@@ -1,3 +1,12 @@
+/*
+Eu quis te conhecer, mas tenho que aceitar
+Caberá ao nosso amor o eterno ou o não dá
+Pode ser cruel a eternidade
+Eu ando em frente por sentir vontade
+
+Janta - Marcelo Camelo
+*/
+
 homem(americo).
 homem(daniel).
 homem(paulo).
@@ -81,8 +90,9 @@ numero_irmaos(X, N):- findall(1 , ( (irmaos(Y, X), irmaos(X, Y)); ( irmaos(Z, X)
 mais velhas que Pess. */
 lista_dos_mais_velhos_que_eu(X, Y):- idade(X, K), findall(A, ( idade(A, B), B > K ), Y).
 
-
-
+/*O - Escreva o predicado avos_e_netos(Lista) que retorne uma lista com todos os avos (homens ou mulheres e
+respectivos netos (Lista = [joaquim-daniel, maria-daniel]).*/
+avos_e_netos(X):- findall(A-B, avof(A, B), K), findall(A-B, avom(A, B), J), append(K, J, X).
 
 
 
