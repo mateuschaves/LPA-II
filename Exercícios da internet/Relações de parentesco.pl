@@ -70,6 +70,13 @@ maior_de_idade(X):- idade(X, I), I > 18.
 /*J - Escreva o predicado mais_velho(Pess) que retorna a pessoa mais velha que consta na base de factos. */
 mais_velho(X):- findall(B, idade(A, B) , L), max_list(L, H), idade(X, H).
 
+/*M - Escreva o predicado numero_irmaos(Pess, N) que sucede se N for o número de irmãos de Pess. */
+
+sum([], 0).
+sum([A | B], S):- sum(B, Sn), S is Sn + A.
+
+numero_irmaos(X, N):- findall(1 , ( (irmaos(Y, X), irmaos(X, Y)); ( irmaos(Z, X), irmaos(Z, Y) ); (irmaos(X, Z), irmaos(Y, Z)) ), L), sum(L, S), S == N.
+
 
 
 
