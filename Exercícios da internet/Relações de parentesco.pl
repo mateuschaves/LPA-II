@@ -63,3 +63,27 @@ tia(X, Y):- irmaos(X, Z),(pai(Z, Y); mae(Z, Y)), mulher(X).
 Pess. */
 neto(X, Y):- avof(Y, X); avom(Y, X), homem(X).
 neta(X, Y):- avof(Y, X); avom(Y, X), mulher(X).
+
+/*I - Escreva o predicado maior_de_idade(Pess) que sucede se Pess for maior de idade. */ 
+maior_de_idade(X):- idade(X, I), I > 18.
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
